@@ -148,3 +148,42 @@ para renombrar un contenedor
 ```
     $ doker rename romantic_poasd to_new_name
 ```
+
+
+Para ver los  procesos que esta ocupando un contenedor
+```
+    $ docker stats container_name
+```
+
+Para instalar un contenedor de jenkins
+```
+    $ docker pull jenkins
+    $ docker run -d -p 8080:8080 --name jenkins jenkins
+```
+
+Limitar el limite de memoria utilizado por un contenedor
+```
+    $ docker run -d -m "500mb" --name mongo2 mongo
+    $ docker stats mongo2
+```
+
+Para limitar el numero de procesadores a utilizar
+```
+    $ docker run --help | grep cpu
+    $ docker run -d -m "500mb" --cpus 1 --name mongo2 mongo 
+```
+
+Para copiar archivos dentro de un contenedor
+```
+    docker cp file container_name:/directory/to/copy/file
+```
+
+Para poder revisar los logs de un contenedor
+```
+    $ docker logs -f container_name
+```
+
+Pasos para poder crear volumenes de host
+```
+    docker 
+```
