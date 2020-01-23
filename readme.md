@@ -215,15 +215,47 @@ Para poder revisar los logs de un contenedor
 
 Pasos para poder crear volumenes de host
 ```
-<<<<<<< HEAD
     docker run -d --name db -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=root" -e "MYSQL_DATABASE=docker" -e "MYSQL_USER=mariossan" -e "MYSQL_PASSWORD=password" -v /Users/mariossan/Documents/dockers/udemy/volumes/mysql/:/var/lib/mysql mysql:5.7
 ```
-=======
-    docker 
+
+Para saber donde se encuentra nuestro docker con sus dependencias
+```
+    $ docker info | grep -i root
+    // Aqui es donde se encuentran los volumenes anonimos
+```
+
+Crear un volumen 
+```
+    $ docker volume create mysql-data
+    // esta instrucción crea un volumen anonimo en la carpeta que se ejecutó con anterioridad
+```
+
+Borrar un volumen
+```
+    $ docker volume rm mysql-data
+```
+
+Para poder usar un volumen creado de manera independiente
+```
+    docker run -d --name db -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=root" -e "MYSQL_DATABASE=docker" -e "MYSQL_USER=mariossan" -e "MYSQL_PASSWORD=password" -v mysql-data:/var/lib/mysql mysql:5.7
+```
+
+Ver los volumenes dangling
+```
+    $ docker volume ls -f dangling=true
+```
+
+Borrar los volumenes dangling o no ocupados
+```
+    $ docker volume rm $(docker volume ls -f dangling=true) 
 ```
 
 
+PERSISTIR DATA EN MONGO
+```
+    // crear una carpeta en una ubicacion
+    $ mkdir mongo
 
+    $ docker run -d -p 27017:27017 -v /Users/mariossan/Documents/dockers/udemy/volumes/mongo:/data/db mongo
+```
 
-
->>>>>>> 7beb1f9f86254441019ee642b8cdfe89163b3cb1
