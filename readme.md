@@ -149,6 +149,36 @@ para renombrar un contenedor
     $ doker rename romantic_poasd to_new_name
 ```
 
+Detener un contenedor
+```
+    docker stop container_id/container_name
+```
+
+Iniciar un seervicio
+
+```
+    docker start container_id/container_name
+```
+
+Para reiniciar
+```
+    docker restart container_id/container_name
+```
+
+Entrar a un contenedor
+```
+    docker exec -it container_name bash
+```
+
+Entrar a un contenedor como un usuario
+```
+    docker exec -u root -it container_name bash
+```
+
+Para agregar variables de entorno al crear un contenedor
+```
+    docker run -dti -e "prueba1=1234" --name test image_name
+```
 
 Para ver los  procesos que esta ocupando un contenedor
 ```
@@ -185,5 +215,15 @@ Para poder revisar los logs de un contenedor
 
 Pasos para poder crear volumenes de host
 ```
+<<<<<<< HEAD
     docker run -d --name db -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=root" -e "MYSQL_DATABASE=docker" -e "MYSQL_USER=mariossan" -e "MYSQL_PASSWORD=password" -v /Users/mariossan/Documents/dockers/udemy/volumes/mysql/:/var/lib/mysql mysql:5.7
 ```
+=======
+    docker 
+```
+
+
+
+
+
+>>>>>>> 7beb1f9f86254441019ee642b8cdfe89163b3cb1
