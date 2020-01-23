@@ -185,5 +185,5 @@ Para poder revisar los logs de un contenedor
 
 Pasos para poder crear volumenes de host
 ```
-    docker 
+    docker run -d --name db -p 3306:3306 -e "MYSQL_ROOT_PASSWORD=root" -e "MYSQL_DATABASE=docker" -e "MYSQL_USER=mariossan" -e "MYSQL_PASSWORD=password" -v /Users/mariossan/Documents/dockers/udemy/volumes/mysql/:/var/lib/mysql mysql:5.7
 ```
