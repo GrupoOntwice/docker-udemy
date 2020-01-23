@@ -149,6 +149,36 @@ para renombrar un contenedor
     $ doker rename romantic_poasd to_new_name
 ```
 
+Detener un contenedor
+```
+    docker stop container_id/container_name
+```
+
+Iniciar un seervicio
+
+```
+    docker start container_id/container_name
+```
+
+Para reiniciar
+```
+    docker restart container_id/container_name
+```
+
+Entrar a un contenedor
+```
+    docker exec -it container_name bash
+```
+
+Entrar a un contenedor como un usuario
+```
+    docker exec -u root -it container_name bash
+```
+
+Para agregar variables de entorno al crear un contenedor
+```
+    docker run -dti -e "prueba1=1234" --name test image_name
+```
 
 Para ver los  procesos que esta ocupando un contenedor
 ```
@@ -187,3 +217,8 @@ Pasos para poder crear volumenes de host
 ```
     docker 
 ```
+
+
+
+
+
