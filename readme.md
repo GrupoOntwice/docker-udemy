@@ -259,3 +259,17 @@ PERSISTIR DATA EN MONGO
     $ docker run -d -p 27017:27017 -v /Users/mariossan/Documents/dockers/udemy/volumes/mongo:/data/db mongo
 ```
 
+Persistir data en jenkins
+```
+    docker run -d -p 8080:8080 -v /Users/mariossan/Documents/dockers/udemy/volumes/jenkins:/var/jenkins_home --name mykenkins jenkins
+```
+
+Ejecutar un cat o comando sin entrar a la consola interactiva
+```
+    docker exec mykenkins bash -c "cat /var/jenkins_home/secrets/initialAdminPassword"
+```
+
+Persistir Logs en nginx
+```
+    docker run -d -p 8081:80 --name server_nginx -v /Users/mariossan/Documents/dockers/udemy/volumes/nginx_logs:/var/nginx/logs nginx
+```
