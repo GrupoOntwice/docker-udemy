@@ -273,3 +273,36 @@ Persistir Logs en nginx
 ```
     docker run -d -p 8081:80 --name server_nginx -v /Users/mariossan/Documents/dockers/udemy/volumes/nginx_logs:/var/nginx/logs nginx
 ```
+
+### REDES
+
+Ver la IP que tiene asignada docker
+```
+    $ ip a | grep docker
+```
+
+Para ver todas las redes de docker
+```
+    $ docker network ls
+```
+
+Para poder saber el network de docker es con 
+```
+    $ docker network inspect bridge
+```
+
+Crear un nuevo network
+```
+    $ docker network create test-network
+```
+
+Para crear una red nueva con parametros
+```
+    $ docker network create -d bridge --subnet 178.124.10.0/24 --gateway 178.124.10.1 dockert-test-network
+```
+
+Crear una contenedor con un network diferente
+```
+    $ docker run --network dockert-test-network -d --name test-with-other-network nginx
+```
+
