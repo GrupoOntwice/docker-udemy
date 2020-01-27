@@ -337,3 +337,26 @@ Nota interesante si quiero que mi contenedor solo sea accesible a traves de 127.
 ```
 
 
+
+### DOCKER COMPOSE
+
+
+Pasos
+```
+    tener un docker'compose.yml como en la caeprta 06'docker'compose
+
+    lo mas basico a tener dentro del yml es
+    version: '3'
+    services:
+        web: 
+            container_name: nginx1
+            ports: 
+                - "8080:80"
+            image: nginx
+
+    Levantar el contenedor
+    $ docker-compose up -d
+
+    Bajar el contenedor
+    $ docker-compose down
+```
