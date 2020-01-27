@@ -306,3 +306,34 @@ Crear una contenedor con un network diferente
     $ docker run --network dockert-test-network -d --name test-with-other-network nginx
 ```
 
+
+Conectar contenedores en distintas redes
+```
+    // Eso hacer que el contenedor se puede conectar a mas de 1 red
+    $ docker network connect docker-network-name container-name
+
+    // Desconectamos el contenedor con
+    $ docker network disconnect docker-network-name container-name
+```
+
+Eliminar una red
+```
+    $ docker network rm docker-network-name
+```
+
+Asignar una ip a un contenedor
+```
+    $ docker network create --subnet 172.128.10.0/24 --gateway 172.128.10.1 -d bridge network-name
+    $ docker run --network network-name --name nginx -ti centos
+
+    // para asignar la ip es
+    $ docker run --network network-name --ip 172.128.10.100 --name nginx2 -ti centos
+    $ docker inspect nginx2
+```
+
+Nota interesante si quiero que mi contenedor solo sea accesible a traves de 127.0.0.1
+```
+    $ docker run -d -p 127.0.0.1:8081:80 nginx
+```
+
+
