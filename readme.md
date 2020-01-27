@@ -360,3 +360,19 @@ Pasos
     Bajar el contenedor
     $ docker-compose down
 ```
+
+
+Env file - Se agrega el archivo  la siguiente linea con el archivo ya las variables de entorno
+```
+    env_file: common.env
+```
+
+Volunenes
+```
+    revisar el archivo docker-compose.yml
+```
+
+para ejecutar un docker-compose de nombre diferente
+```
+    $ docker-compose -f docker-compose-name.yml up -d
+```
