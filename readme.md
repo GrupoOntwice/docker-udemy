@@ -376,3 +376,45 @@ para ejecutar un docker-compose de nombre diferente
 ```
     $ docker-compose -f docker-compose-name.yml up -d
 ```
+
+Agregar un nombre a nuestro proyecto, donde la -p indica el nombre del proyecto
+```
+    $ docker-compose -p webtest up -d
+```
+
+
+### Docker registry
+
+https://docs.docker.com/registry/
+
+Registry de manera Local
+```
+    $ mkdir registry
+    // basicamente el registry es un contenedor
+
+    // necesitamos un volumen para que la data persista dentro del registry
+    $ docker run -d -p 5000:5000 -v $PWD/data:/var/lib/registry --name registry registry:2
+```
+
+Antes de subir una imagen se taggea
+```
+    $ docker pull hello-world
+    $ docker tag hello-world localhost:5000/hello-world
+
+    // Se pueden ver las imagenes y la nueva que se va a ir al registry
+    $ docker images
+    
+    // subimos la imagen al registry
+    $ docker push localhost:5000/hello-world
+
+    //ubiaccion
+    $PDW/data/docker/registry/v2/repositories/hello-world
+
+    //bajar la imagen
+    docker pull localhost:5000/hello-world
+```
+
+https://learndevopsnow.tech/docker-registry-con-basic-auth/
+
+
+https://www.learndevopsnow.tech/devops-courses/
