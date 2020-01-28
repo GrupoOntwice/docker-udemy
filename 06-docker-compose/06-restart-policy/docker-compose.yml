@@ -1,0 +1,8 @@
+version: '3'
+services:
+    test: 
+        container_name: test2020
+        image: restart-image
+        build: .
+        restart: always
+

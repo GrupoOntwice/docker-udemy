@@ -1,0 +1,15 @@
+version: '3'
+services:
+    web: 
+        image: nginx
+        container_name: mysql
+        ports: 
+            - "80:80"
+        volumes:
+            - "vol2:/usr/share/nginx/html"
+volumes:
+    vol2:
+
+
+# Para ver el volumen es con 
+# docker info | grep -i root
